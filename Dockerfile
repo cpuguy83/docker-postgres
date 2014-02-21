@@ -1,4 +1,9 @@
-FROM cpuguy83/ubuntu
+FROM ubuntu:12.04
+ENV DEBIAN_FRONTEND noninteractive
+RUN locale-gen en_US.UTF-8 && update-locale en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
 
 RUN apt-get update && apt-get install -y postgresql postgresql-contrib libpq-dev
 ADD pg_hba.conf /etc/postgresql/9.1/main/pg_hba.conf
